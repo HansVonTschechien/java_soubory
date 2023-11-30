@@ -1,6 +1,8 @@
 package com.company;
 
+import javax.swing.*;
 import java.io.*;
+import java.util.Scanner;
 
 public class Main {
 
@@ -27,8 +29,17 @@ public class Main {
             while ((character = reader.read()) != -1) {
                 System.out.print((char) character);
             }
+            System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        JFileChooser chooser = new JFileChooser();
+        int returnValue = chooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            System.out.println("Bylo vybrano: " + chooser.getSelectedFile().getName());
+        } else {
+            System.out.println("Nebyl vybran soubor");
         }
     }
 }
