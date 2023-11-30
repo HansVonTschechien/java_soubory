@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
 
@@ -20,6 +18,15 @@ public class Main {
 
         try (FileWriter writer = new FileWriter("textik.txt")) {
             writer.write("ahoj");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (FileReader reader = new FileReader("textik.txt")) {
+            int character;
+            while ((character = reader.read()) != -1) {
+                System.out.print((char) character);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
