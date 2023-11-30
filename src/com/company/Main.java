@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
@@ -13,6 +14,12 @@ public class Main {
             } else {
                 System.out.println("Soubor se nevytvoril");
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (FileWriter writer = new FileWriter("textik.txt")) {
+            writer.write("ahoj");
         } catch (IOException e) {
             e.printStackTrace();
         }
